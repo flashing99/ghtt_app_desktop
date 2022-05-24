@@ -30,6 +30,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # MSIX is a Windows app packaging format to Generate Windows app to install
+  # msix: ^3.3.1
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -48,10 +51,36 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+  # package to create APP WIN Installer
+  # run the following two commands:
+  # - c:\src\flutter_project\> flutter build windows
+  # - c:\src\flutter_project\> flutter pub run msix:create
+  msix: ^3.3.1
 
-# The following section is specific to Flutter.
+  # For information on the generic Dart part of this file, see the
+  # following page: https://dart.dev/tools/pub/pubspec
+
+  # The following section is specific to Flutter.
+
+msix_config:
+  display_name: ghtt_app_desktop
+  publisher_display_name: Mouallem Mohamed
+  msix_version: 1.0.0.0
+  identity_name: dz.groupe-htt
+  languages: fr-fr
+  output_name: httApp_dev
+  logo_path: D:\Projets Flutter\logo_htt.png
+  capabilities: "internetClient,location,microphone,webcam"
+  dont_install_cert: true
+  output_path: D:\Projets Flutter\output\msix\
+  app_installer: #<-- app installer configuration
+    publish_folder_path: D:\Projets Flutter\output\
+    hours_between_update_checks: 0
+    automatic_background_task: true
+    update_blocks_activation: true
+    show_prompt: true
+    force_update_from_any_version: false
+
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
